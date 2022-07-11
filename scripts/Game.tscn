@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Grid.gd" type="Script" id=1]
+[ext_resource path="res://assets/bgNoStroke.png" type="Texture" id=2]
+[ext_resource path="res://assets/topUI.png" type="Texture" id=3]
+[ext_resource path="res://assets/bottomUI_3.png" type="Texture" id=4]
+
+[node name="Game" type="Node2D"]
+
+[node name="Graphics" type="Node2D" parent="."]
+position = Vector2( 360, 640 )
+
+[node name="BG" type="Sprite" parent="Graphics"]
+texture = ExtResource( 2 )
+
+[node name="TopUI" type="Sprite" parent="Graphics"]
+position = Vector2( 0, -575 )
+texture = ExtResource( 3 )
+
+[node name="BottomUI" type="Sprite" parent="Graphics"]
+position = Vector2( 0, 598 )
+texture = ExtResource( 4 )
+
+[node name="Grid" type="Node2D" parent="."]
+script = ExtResource( 1 )
+width = 10
+height = 15
+x_start = 45
+y_start = 1150
+offset = 70
