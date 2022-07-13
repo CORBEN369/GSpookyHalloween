@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/Shovel.png" type="Texture" id=1]
+[ext_resource path="res://scripts/dragMove.gd" type="Script" id=2]
+
+[sub_resource type="CapsuleShape2D" id=1]
+
+[node name="Player" type="Node2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="Sprite"]
+position = Vector2( 9.57715, -46.104 )
+rotation = 0.70706
+scale = Vector2( 2.21471, 2.03609 )
+shape = SubResource( 1 )
+
+[connection signal="pressed" from="Sprite/TouchScreenButton" to="Sprite" method="_on_TouchScreenButton_pressed"]
+[connection signal="released" from="Sprite/TouchScreenButton" to="Sprite" method="_on_TouchScreenButton_released"]

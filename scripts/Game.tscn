@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scripts/Grid.gd" type="Script" id=1]
 [ext_resource path="res://assets/bgNoStroke.png" type="Texture" id=2]
 [ext_resource path="res://assets/topUI.png" type="Texture" id=3]
 [ext_resource path="res://assets/bottomUI_3.png" type="Texture" id=4]
+[ext_resource path="res://scripts/Player.tscn" type="PackedScene" id=5]
 
 [node name="Game" type="Node2D"]
 
@@ -28,3 +29,6 @@ height = 15
 x_start = 45
 y_start = 1154
 offset = 70
+
+[node name="Player" parent="." instance=ExtResource( 5 )]
+position = Vector2( 656, 1238 )
