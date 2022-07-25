@@ -7,15 +7,16 @@ export (int) var y_start
 export (int) var offset
 
 var possible_pieces = [
-	preload("res://Pieces/BuriedSkellyPart.tscn"),
-	preload("res://Pieces/HoleDugNoSkelly.tscn"),
-	preload("res://Pieces/SkellyPartHit.tscn"),
-	preload("res://Pieces/Dirt.tscn")
+	preload("res://scenes/Pieces/BuriedSkellyPart.tscn"),
+	preload("res://scenes/Pieces/HoleDugNoSkelly.tscn"),
+	preload("res://scenes/Pieces/SkellyPartHit.tscn"),
+	preload("res://scenes/Pieces/Dirt.tscn")
 ]
 var all_pieces = []
 
 
 func _ready():	
+	randomize()
 	all_pieces = make_grid()
 	print_grid()
 	#validate_grid_and_place_skelly()
@@ -37,9 +38,9 @@ func print_grid():
 		#looking through all the rows in the grid starting at zero
 		for j in height:
 			#choose a random number and store it.
-			var rand = floor(rand_range(0, possible_pieces.size()))
+			var rand = possible_pieces[randi() % possible_pieces.size()]
 			#instance that piece from the array.
-			var piece = possible_pieces[rand].instance()
+			var piece = rand.instance()
 			add_child(piece)
 			piece.position = grid_to_pixel(i, j)
 
